@@ -1,0 +1,58 @@
+graph TD
+    A["🎯 PROJECT START<br/>Download Audio Automatically<br/>from dhammadownload.com"]
+    
+    A --> B["🔍 PROBLEM ANALYSIS<br/>Website has nested links<br/>Category pages → Audio files<br/>Manual download not practical"]
+    
+    B --> C["🛠 TOOL SELECTION<br/>Option 1: wget alone ❌<br/>Option 2: Python script ✅"]
+    
+    C --> D["⚙️ ENVIRONMENT SETUP<br/>Create virtual environment<br/>mkdir dhamma_download<br/>python3 -m venv venv<br/>source venv/bin/activate"]
+    
+    D --> E["📦 INSTALL DEPENDENCIES<br/>pip install requests<br/>pip install beautifulsoup4<br/>Resolved: externally-managed-environment"]
+    
+    E --> F["📋 WEBSITE ANALYSIS<br/>wget to download HTML<br/>grep to search patterns<br/>Found 28 Sayadaw categories"]
+    
+    F --> G["🔗 LINK STRUCTURE DISCOVERED<br/>Level 1: Main page AudioInMyanmar.htm<br/>Level 2: Sayadaw category pages 28 total<br/>Level 3: Audio files inside each category"]
+    
+    G --> H["💻 SCRIPT DEVELOPMENT<br/>Extract Sayadaw links<br/>Open each category page<br/>Find audio files in each<br/>Get file sizes via HTTP HEAD"]
+    
+    H --> I["✅ FEATURES IMPLEMENTED<br/>Scan all categories and files<br/>Calculate total data size<br/>Ask user confirmation<br/>Skip existing files - resume capability"]
+    
+    I --> J["▶️ FIRST EXECUTION<br/>python3 dhamma_downloader.py<br/>Script scans website<br/>Shows: Categories found, Files found, Total size"]
+    
+    J --> K["📊 USER DECISION<br/>Review total size<br/>User confirms: yes/no<br/>Proceed or cancel"]
+    
+    K --> L["⬇️ DOWNLOAD PHASE<br/>Download one-by-one<br/>Sequential processing<br/>Files organized by Sayadaw folder<br/>Progress indicator shown"]
+    
+    L --> M["⏸ PAUSE & RESUME<br/>User can stop anytime Ctrl+C<br/>Files already downloaded stored<br/>Run script again next time<br/>Automatically skips downloaded files<br/>Resumes from where stopped"]
+    
+    M --> N["💾 EXTERNAL HARD DRIVE<br/>Connect USB/HDD<br/>lsblk to find drive<br/>sudo mount /dev/sdbX ~/external_drive<br/>Run script from external drive<br/>Files stored on external drive"]
+    
+    N --> O["🔄 RESUME ON EXTERNAL DRIVE<br/>Unplug drive anytime<br/>Reconnect later<br/>Mount again<br/>Run script - resumes automatically<br/>No re-downloading"]
+    
+    O --> P["📁 FILE ORGANIZATION<br/>Folder structure by Sayadaw name<br/>Audio files inside folders<br/>Technical filenames on disk<br/>Example: 525-MyautOoSayadaw-KinMonGyi-10-Par.mp3"]
+    
+    P --> Q["🎵 FILE PLAYBACK<br/>Open with audio player VLC/iTunes<br/>Player reads ID3 metadata tags<br/>Displays Burmese name inside MP3<br/>User sees proper names while playing<br/>Technical filename is just storage"]
+    
+    Q --> R["📚 LEARNING OUTCOMES<br/>Linux commands: grep, mount, cd, mkdir<br/>Python: requests, file I/O, regex<br/>Web scraping: HTML structure analysis<br/>Virtual environments for Python<br/>Resume/checkpoint logic"]
+    
+    R --> S["✨ PROJECT COMPLETE<br/>All audio files downloaded<br/>Organized by category<br/>Stored safely on external drive<br/>Ready for offline listening<br/>Parents can listen to Dhamma teachings"]
+    
+    style A fill:#000000,stroke:#ffffff,color:#ffffff,stroke-width:3px
+    style B fill:#1a1a1a,stroke:#ffffff,color:#ffffff,stroke-width:2px
+    style C fill:#2d2d2d,stroke:#ffffff,color:#ffffff,stroke-width:2px
+    style D fill:#404040,stroke:#ffffff,color:#ffffff,stroke-width:2px
+    style E fill:#1a1a1a,stroke:#ffffff,color:#ffffff,stroke-width:2px
+    style F fill:#2d2d2d,stroke:#ffffff,color:#ffffff,stroke-width:2px
+    style G fill:#404040,stroke:#ffffff,color:#ffffff,stroke-width:2px
+    style H fill:#1a1a1a,stroke:#ffffff,color:#ffffff,stroke-width:2px
+    style I fill:#2d2d2d,stroke:#ffffff,color:#ffffff,stroke-width:2px
+    style J fill:#404040,stroke:#ffffff,color:#ffffff,stroke-width:2px
+    style K fill:#1a1a1a,stroke:#ffffff,color:#ffffff,stroke-width:2px
+    style L fill:#2d2d2d,stroke:#ffffff,color:#ffffff,stroke-width:2px
+    style M fill:#404040,stroke:#ffffff,color:#ffffff,stroke-width:2px
+    style N fill:#1a1a1a,stroke:#ffffff,color:#ffffff,stroke-width:2px
+    style O fill:#2d2d2d,stroke:#ffffff,color:#ffffff,stroke-width:2px
+    style P fill:#404040,stroke:#ffffff,color:#ffffff,stroke-width:2px
+    style Q fill:#1a1a1a,stroke:#ffffff,color:#ffffff,stroke-width:2px
+    style R fill:#2d2d2d,stroke:#ffffff,color:#ffffff,stroke-width:2px
+    style S fill:#000000,stroke:#ffffff,color:#ffffff,stroke-width:3px
